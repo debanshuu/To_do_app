@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TaskFlow — To-Do App</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <div class="wrapper">
+
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <h1>Task<span>Flow</span></h1>
+        <p>Stay focused. Stay productive.</p>
+      </div>
+      <div class="date-badge">
+        <strong id="today-date"></strong>
+        <span id="today-day"></span>
+      </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="num" id="stat-total">0</div>
+        <div class="label">Total</div>
+      </div>
+      <div class="stat-card blue">
+        <div class="num" id="stat-pending">0</div>
+        <div class="label">Pending</div>
+      </div>
+      <div class="stat-card">
+        <div class="num" id="stat-done">0</div>
+        <div class="label">Done</div>
+      </div>
+      <div class="stat-card red">
+        <div class="num" id="stat-overdue">0</div>
+        <div class="label">Overdue</div>
+      </div>
+    </div>
+
+    <!-- Progress Bar -->
+    <div class="progress-wrap">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="input-area">
+      <div class="input-row">
+        <input class="task-input" id="task-input" type="text" placeholder="Add a new task…" autocomplete="off"/>
+        <button class="add-btn" id="add-btn" title="Add Task">+</button>
+      </div>
+      <div class="input-meta">
+        <select class="meta-select" id="priority-select">
+          <option value="low">🔵 Low Priority</option>
+          <option value="medium" selected>🟡 Medium Priority</option>
+          <option value="high">🔴 High Priority</option>
+        </select>
+        <select class="meta-select" id="category-select">
+          <option value="General">📋 General</option>
+          <option value="Work">💼 Work</option>
+          <option value="Personal">🏠 Personal</option>
+          <option value="Health">🏃 Health</option>
+          <option value="Learning">📚 Learning</option>
+          <option value="Finance">💰 Finance</option>
+        </select>
+        <input placeholder="Enter due date" class="meta-date" id="due-date" type="date" title="Due Date"/>
+      </div>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="pending">Pending</button>
+      <button class="filter-btn" data-filter="done">Done</button>
+      <button class="filter-btn" data-filter="high">High</button>
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input class="search-input" id="search-input" type="text" placeholder="Search…"/>
+      </div>
+    </div>
+
+    <!-- Task List -->
+    <div id="task-list"></div>
+    <div class="empty-state" id="empty-state">
+      <div class="icon">✦</div>
+      <p>No tasks here.<br>Add one above to get started.</p>
+    </div>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
